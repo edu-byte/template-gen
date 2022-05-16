@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+	.max-width-md {
+		max-width: 768px;
+	}
+	.article img {
+		display: block;
+		margin: auto;
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+	}
+	.article blockquote {
+		padding: 0 1em;
+		color: gray;
+		border-left: .25em solid gray;
+	}
+	code.has-jax {
+		font: inherit;
+		font-size: 100%;
+		background: inherit;
+		border: inherit;
+		color: #515151;
+	}
+	</style>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<script id="MathJax-script" type="text/javascript">
+	MathJax = {
+		tex: {
+			inlineMath: [
+				["$", "$"],
+				["\\(", "\\)"],
+			],
+		},
+		svg: {
+			fontCache: "global",
+		},
+	};
+	</script>
+	<script type="text/javascript" id="MathJax-script" async
+		src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<header
+	class="container d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+	<a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+		<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+			class="bi bi-bootstrap-fill" viewBox="0 0 16 16">
+			<path
+				d="M6.375 7.125V4.658h1.78c.973 0 1.542.457 1.542 1.237 0 .802-.604 1.23-1.764 1.23H6.375zm0 3.762h1.898c1.184 0 1.81-.48 1.81-1.377 0-.885-.65-1.348-1.886-1.348H6.375v2.725z" />
+			<path
+				d="M4.002 0a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4h-8zm1.06 12V3.545h3.399c1.587 0 2.543.809 2.543 2.11 0 .884-.65 1.675-1.483 1.816v.1c1.143.117 1.904.931 1.904 2.033 0 1.488-1.084 2.396-2.888 2.396H5.062z" />
+		</svg>
+	</a>
+
+	<ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+		<li><a href="/courses" class="nav-link px-2 link-dark">
+				<i class="bi bi-book"></i> Курси</a></li>
+		<li><a href="/guides" class="nav-link px-2 link-dark">
+				<i class="bi bi-question-circle"></i> Як допомогти</a></li>
+		<li><a href="/about" class="nav-link px-2 link-dark">
+				<i class="bi bi-people-fill"></i>
+				Про нас</a></li>
+	</ul>
+</header>
+<div class="article container-fluid max-width-md">
+<h1 class="title">Неперевні випадкові величини</h1>
+<div class="author">
+	<a href="#" class="btn">
+		<i class="bi bi-person-circle"></i>
+		Кирило Байбула
+	</a>
+</div>
+<hr />
+<p class="text-justify"><p>На відміну від дискретних випадкових величин, НВВ можуть приймати
+будь-які дійсні значення із деякого проміжку не нульової довжини,
+що робить неможливим її представлення у вигляді таблиці (так як
+дійсни чисел нескінчено багато). Через це величину задають функціями
+двух типів:</p>
+
+<ol>
+<li>розподілу</li>
+<li>щільності</li>
+</ol>
+
+<p>Функція розподілу НВВ визначається так само, як і функція розподілу
+ДВВ: <span class="math inline">\(F(x) = P(X &lt; x) -\)</span> ймовірність того, що випадкова величина
+прийме значення, <strong>МЕНШЕ</strong>, ніж змінна <span class="math inline">\(x\)</span> , яка <em>&ldquo;проходить&rdquo;</em> всі
+значення від <span class="math inline">\(-\infty\)</span> до <span class="math inline">\(\infty\)</span>. Такич чином, враховуючи всі
+значення, які <strong>ВЗАГАЛІ</strong> може приймати НВВ. Зі збільшенням <span class="math inline">\(x\)</span>
+функція розподілу <em>&ldquo;накопичує&rdquo;</em> (додає) ймовірності, а отже, є
+незростаючою і змінюється в межах <span class="math inline">\(0 \le F(x) \le 1\)</span> . Саме тому
+її іноді називають <strong><em>інтегрально функцією розподілу</em></strong>.</p>
+
+<p>Важливою особливістю є той факт, що функція розподілу <strong>БУДЬ ЯКОЇ</strong>
+НВВ завжди і всюди непервна! Часто її можна побачити кусково заданою:</p>
+<p><span class="math display">\[
+F(x) =
+    \begin{cases}
+        0, &amp; \text{якщо}\ x \lt 0 \\\
+        \frac{x^2}{9}, &amp; \text{якщо}\  0 \le x \le 3 \\\
+        1, &amp; \text{якщо}\ x \gt 3
+    \end{cases}
+\]</span></p><p>однак у точках <em>&ldquo;стику&rdquo;</em> все добре:
+<span class="math inline">\(F(0) = \frac{0^2}{9} = 0,\ F(3) = \frac{3^2}{9} = 1\)</span>
+і якщо там розрив, то ви маєте справу із відвертою помилкою!</p>
+
+<blockquote>
+<p><em>P.S.: Але сам по собі непервність і нуль зліва, одиниця справа –</em>
+<em>ще не означають, що перед нами функція розподілу.</em>
+При побудові приблизного малюнку буде доречно знайти опорні точки;
+у нашому прикладі зручно взяти <span class="math inline">\(F(1) = \frac{1^2}{9} \approx 0.11,\)</span>
+<span class="math inline">\(F(2) = \frac{2^2}{9} \approx 0.44\)</span> і плавно-плавно провести олівцем
+шматок параболи <span class="math inline">\(y = \frac{x^2}{9}\)</span>:</p>
+</blockquote>
+
+<p><img src="images/plot-01.jpg" alt="Графік-01" /></p>
+
+<p>Не забуваєм, що <span class="math inline">\(F(x)\)</span> не може спадати, і якщо раптом виявиться, що
+якийсь шмат графіка йде <em>&ldquo;зверху вниз&rdquo;</em>, то шукайте помилку або ж
+може просто дрогнула рука о_О.</p>
+
+<p>Тепер повернемося до сенсу функції розподілу і розглянемо пару
+конкретних <em>&ldquo;іксів&rdquo;</em>:</p>
+
+<p><span class="math inline">\(F(-1) = P(X \lt -1) = 0 \ -\)</span> ймовірність того, що випадкова
+величина <span class="math inline">\(X\)</span> прийме значення, <strong>МЕНШЕ</strong>, за –1;</p>
+
+<p><span class="math inline">\(F(4) = P(X \lt 4) = 1 \ -\)</span> ймовірність того, що випадкова
+величина <span class="math inline">\(X\)</span> прийме значення, <strong>МЕНШЕ</strong>, за 4;</p>
+
+<p>Ну, і очевидно, що розглядаєма випадкова величина приймає
+випадкові, наперед невідомі значення із відрізка <span class="math inline">\([0; 3]\)</span>. Якщо
+вкладати в задачу зміст, то це може бути випадкова тривалість
+деякого процессу (в секундах, наприклад), або масса або розмір
+випадково вибраного об&rsquo;єута (наприклад, крупинки піску). І тому
+подібне – прикладів багато. Конкретні задачі обов&rsquo;язково будуть,
+але до того залишимося на технічній стороні питання.</p>
+
+<p>Ймовірність того, що випадкова величина прийме значення із
+деякого проміжку, знаходиться ще легше, ніж для дискретної
+випадкової величини. Тут немає ніякої Санта-Барбари: відрізок
+чи <span class="math inline">\([0; 3]\)</span> нам дан, полуінтервал <span class="math inline">\((a, b], [a, b)\)</span> або інтервал
+<span class="math inline">\((a, b)\)</span>, відповідні ймовірність можна обчислити за формулою:</p>
+<p><span class="math display">\[
+F(a) - F(b)
+\]</span></p>
+<blockquote>
+<p><em>P.S.: в наступних темах це буде пояснено</em>
+Наприклад:</p>
+</blockquote>
+
+<p><span class="math inline">\(P(0 \le X \le 1) = F(1) - F(0) = \frac{1^2}{9} - \frac{0^2}{9} = \frac{1}{9}\)</span> - ймовірність того, що випадкова
+величина прийме значення на відрізку <span class="math inline">\([0; 1]\)</span>; І такими самими
+будуть ймовірності <span class="math inline">\(P(0 \lt X \lt 1), P(0 \le X \lt 1),\)</span>
+<span class="math inline">\(P(0 \lt X \le 1)\)</span>.</p>
+
+<p><span class="math inline">\(P(2 \le X \le 3) = F(3) - F(2)= \frac{3^2}{9} - \frac{2^2}{9} = \frac{5}{9}\)</span> - ймовірність того, що випадкова
+величина прийме значення на відрізку <span class="math inline">\([2; 3]\)</span>;</p>
+
+<p>Мабуть, хтось підмітив, що на відрізках <em>однакової довжини</em>
+результат отримується різним: <span class="math inline">\(P(2 \le X \le 3) \ne P(0 \le X \le 1)\)</span>
+. Тому відкритим залишається питання: а як оцінити цю
+<em>&ldquo;концентрацію&rdquo;</em> ймовірностей на різних проміжках? - бо функція
+розподілу <span class="math inline">\(F(x)\)</span> характеризує <strong>накопичення</strong> ймовірностей при
+збільшенні <span class="math inline">\(x\)</span> і просто багато разів вичисляти малі проміжки:
+<span class="math inline">\(F(b)-F(a)\)</span> - пуста робота.</p>
+
+<p>Саме тому і існує таке поняття як <strong>функція щільності</strong>.</p>
+
+<h2>Функція щільності</h2>
+
+<p>або диференціальна функція розподілу. Вона являє собою
+похідну функцію розподілу <span class="math inline">\(f(x) = F'(x)\)</span>.</p>
+
+<blockquote>
+<p><em>P.S.: для дискретної випадкової величини такої функції не існує</em>
+У нашому прикладі:</p>
+</blockquote>
+<p><span class="math display">\[
+f(x) = F'(x) =
+\begin{cases}
+    (0)', &amp; \text{якщо}\ x \lt 0 \\\
+    (\frac{x^2}{9})', &amp; \text{якщо}\  0 \le x \le 3 \\\
+    (1)', &amp; \text{якщо}\ x \gt 3
+\end{cases} =
+\begin{cases}
+    0, &amp; \text{якщо}\ x \lt 0 \\\
+    \frac{2x}{9 }, &amp; \text{якщо}\  0 \le x \le 3 \\\
+    0, &amp; \text{якщо}\ x \gt 3
+\end{cases}
+\]</span></p><p>Тобто, все достатньо легко - просто беремо похідну від кожного
+шматка.</p>
+
+<p>Але найцікавішим є той факт, що невласний: <span class="math inline">\(\int_{-\infty}^{\infty}\)</span>
+<span class="math inline">\(f(x)dx = 1\)</span> - <strong>дорівнює одиниці і строго одиниці</strong>. Інакше перед
+нами не функція щільності, і якщо така функція була знайдена як
+похідна, то <span class="math inline">\(F(x)\)</span> - не є функцією розподілу.</p>
+
+<p>Перевірим наші функції на коректність. Якщо випадкова величина
+приймає значення із конкретного проміжку, то все зводится до
+обислення визначеного інтегралу. В силу <em>адитивності</em>:</p>
+<p><span class="math display">\[
+\int_{-\infty}^{\infty} f(x) dx =
+ \int_{-\infty}^{0} 0 \cdot dx +
+ \int_{0}^{3} \frac{2x}{9} dx +
+ \int_{3}^{\infty} 0 \cdot dx
+\]</span></p><p>Абсолютно зрозуміло, що лівий і правий інтеграли рівні нулю і
+нам залишилося обчислити:</p>
+<p><span class="math display">\[
+\frac{2}{9}\int_{0}^{3} x dx =
+\frac{2}{9} \cdot \frac{1}{2}(x^2) \vert_{0}^{3} =
+\frac{1}{9}(9 - 0) = 1
+\]</span></p><p>що потрібно і було довести.</p>
+
+<p>З ймовірностної точки зору це означає, що випадкова величина <span class="math inline">\(X\)</span>
+точно прийме одне із значень <span class="math inline">\([0; 3]\)</span>. Геометрично це ж означає,
+що площа між осями і графіком дорінює одиниці, у данному випадку
+йдеться про про площу трикутника <span class="math inline">\(ABC\)</span>. Сторона <span class="math inline">\(AB\)</span> є фрагментом
+прямої <span class="math inline">\(y = \frac{2x}{9}\)</span> і для її побудови достатньо знайти точку
+<span class="math inline">\(y(3) = \frac{2 \cdot 3}{9} = \frac{2}{3} \approx 0.67\)</span>:</p>
+
+<p><img src="images/plot-02.jpg" alt="Графік-02" /></p>
+
+<p>Тепер видно – де більша площа, там і більш ймовірні значення. Так
+як функція щільності <em>&ldquo;збирає під собою&rdquo;</em> ймовірності, то вона
+теж невід&rsquo;ємна <span class="math inline">\((f(x) \ge 0)\)</span> і її графік не може бути нижче осі
+<span class="math inline">\(OX\)</span>. Також підмітимо, що ця функція розривна (подивіться на
+<em>&ldquo;жирні&rdquo;</em> точки).</p>
+
+<p>Тепер розберемо достатньо цікавий факт: так як чисел незлічено
+багато, то ймовірність того, що випадкова величина прийме якесь
+конкретне значення наближаєтся до нуля. І тому ймовірність
+розраховується не для окремо взятих точек, а для цілих проміжків
+(нехай навіть для дуже малих). Як ви правильно здогадалися:</p>
+<p><span class="math display">\[
+P(0 \le X \le 1) =
+\int_{a}^{b} f(x) dx =
+\frac{2}{9} \int_{0}^{1} x dx =
+\frac{2}{9} \cdot \frac{1}{2} (x^2) \vert_{0}^{1} =
+\frac{1}{9} (1-0) = \frac{1}{9}
+\]</span></p><p>(синя площина) - ймовірність того, що випадкова величина прийме
+значення з відрізка <span class="math inline">\([0; 1]\)</span>;</p>
+<p><span class="math display">\[
+P(2 \le X \le 3) =
+\frac{2}{9} \int_{2}^{3} x dx =
+\frac{2}{9} \cdot \frac{1}{2} (x^2) \vert_{2}^{3} =
+\frac{1}{9} (9-4) = \frac{5}{9}
+\]</span></p><p>(червона площа) - ймовірність того, що випадкова величина прийме
+значення з відрізка <span class="math inline">\([2; 3]\)</span>;</p>
+
+<p>По тій причині, що окремо взяті значення можно не брати до уваги,
+за допомогою тих же самих інтегралів можна обчислювати
+і ймовірність по інтервалам / полуінтервалам, в частності:</p>
+<p><span class="math display">\[
+P(0 \lt X \le 1) =
+P(0 \lt X \lt 1) =
+P(0 \le X \lt 1) =
+\frac{2}{9} \int_{0}^{1} x dx =
+\frac{1}{9}
+\]</span></p>
+<blockquote>
+<p><em>P.S.: саме тому і пояснюється пункти вище про <span class="math inline">\(F(x)\)</span></em></p>
+</blockquote>
+</p>
+</div>
+<footer class="container d-flex justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+            <svg class="bi" width="30" height="24">
+                <use xlink:href="#bootstrap"></use>
+            </svg>
+        </a>
+        <span class="text-muted">© 2021 Company, Inc</span>
+    </div>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3">
+            <a class="text-muted" href="#">
+                <i class="bi bi-github"></i>
+            </a>
+        </li>
+    </ul>
+</footer>
+</html>
