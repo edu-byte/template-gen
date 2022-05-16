@@ -1,4 +1,4 @@
-# easy-math-template-gen
+# template-gen
 
 Create a html file from tamplate like it will loook on the website.
 Use it test look of yout article
